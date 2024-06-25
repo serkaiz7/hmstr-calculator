@@ -1,0 +1,19 @@
+name: Shell Script CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run profit_calculator script
+      run: |
+        chmod +x profit_calculator.sh
+        ./profit_calculator.sh < input.txt
